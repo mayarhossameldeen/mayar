@@ -1,0 +1,36 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package mayar;
+import java.util.ArrayList;
+import java.util.List;
+/**
+ *
+ * @author user
+ */
+public class cart {
+    
+    private List <Item> items = new ArrayList<>();
+    
+    
+    
+    public void add_items (Products p , int quantity){
+        if(quantity > p.getquantity()){
+            System.out.println("there's no enough stock for this item that called" + p.getname());
+            return;
+        }
+        items.add(new Item(p , quantity));
+        
+    }
+    
+    
+    public List<Item> getitems(){
+        return items;
+    }
+    
+  
+    public boolean isEmpty(){
+        return items.isEmpty();
+    }
+}
