@@ -1,0 +1,60 @@
+package mayar;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class checkout {
+
+    public static void checkout(customer customer, cart cart) {
+
+        if (cart.isEmpty()) {
+            System.out.println("Error: Cart is empty!");
+            return;
+        }
+
+        float subtotal = 0;
+        List<shippable_products> toShip = new ArrayList<>();
+
+        for (Item i : cart.getitems()) {
+            Products p = i.p;
+
+            if (p.getex()) {
+                System.out.println("Error: Product " + p.getname() + " is expired.");
+                return;
+            }
+
+            subtotal += p.getprice() * i.quantity;
+
+            if (p.getshippable()) {
+                toShip.add((shippable_products) p);
+            }
+
+            p.red_quantity(i.quantity);
+        }
+
+        float shippingFee = toShip.isEmpty() ? 0 : 30;
+
+        float total = subtotal + shippingFee;
+
+        if (customer.getbalance() < total) {
+            System.out.println("Error: Not enough balance.");
+            return;
+        }
+
+        customer.reduce_balance(total);
+
+        // ✅ Now use static shipping method — no variable needed!
+        if (!toShip.isEmpty()) {
+            shipping.shipped(toShip);
+        }
+
+        System.out.println("--- Receipt ---");
+        for (Item i : cart.getitems()) {
+            System.out.println(i.quantity + " x " + i.p.getname() + " = " + (i.p.getprice() * i.quantity));
+        }
+        System.out.println("Subtotal: " + subtotal);
+        System.out.println("Shipping: " + shippingFee);
+        System.out.println("Total: " + total);
+        System.out.println("Remaining balance: " + customer.getbalance());
+    }
+}
