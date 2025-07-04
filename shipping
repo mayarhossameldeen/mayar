@@ -1,0 +1,30 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package mayar;
+import java.util.List;
+/**
+ *
+ * @author user
+ */
+public class shipping {
+    
+public static void shipped (List<shippable_products> items){
+    
+    
+    float total_weight=0;
+    System.out.println("** shipment notice **");
+    for (shippable_products item : items) {
+        System.out.println(item.getname()+ " " + item.getweight()+"kilo gram");
+        total_weight += item.getweight();
+        
+    }
+    System.out.println("total weight" + total_weight + "kilo grams");
+    
+}
+
+
+    
+    
+}
