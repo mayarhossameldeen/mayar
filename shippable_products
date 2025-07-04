@@ -1,0 +1,24 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package mayar;
+
+/**
+ *
+ * @author user
+ */
+public class shippable_products extends Products implements ShippingService {
+    float weight;
+    public shippable_products(String name, float price, int quantity, boolean shippable, boolean ex) {
+        super(name, price, quantity, shippable, ex);
+        this.weight=weight ;
+        
+    }
+    @Override
+    public float getweight(){
+        return weight;
+        
+    }
+    
+}
