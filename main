@@ -1,0 +1,32 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package mayar;
+
+/**
+ *
+ * @author user
+ */
+public class Mayar {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    // Example Main
+customer customer = new customer("Mayar", 500);
+cart c = new cart();
+shipping shippingService = new shipping();
+
+Products cheese = new shippable_products("Cheese", 100, 5, true, flase);
+Products card = new Products("Scratch Card", 50, 10, false, false);
+
+c.add_items(cheese, 2);
+c.add_items(card, 1);
+
+checkout.checkout(customer, c);
+
+    }
+    
+}
