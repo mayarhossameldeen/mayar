@@ -1,0 +1,6 @@
+
+public interface ShippingService {
+    String getname();
+    float getweight();
+    
+}
